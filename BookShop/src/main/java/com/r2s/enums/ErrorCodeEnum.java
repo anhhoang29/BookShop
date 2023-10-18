@@ -14,6 +14,7 @@ public enum ErrorCodeEnum {
 	INVALID_USER(400, 40001, "User not exist"),
 	INVALID_CREATE_USER(400, 40002, "Create user not success"),
 	INVALID_UPDATE_USER(400, 40003, "Update user not success"),
+	INVALID_DELETE(400, 40004, "Delete not success, entity is used"),
 	INTERNAL_SERVER_ERROR(500, 50000, "Internal Server Error"),
 	FORBIDDEN(403, 403, "Không có quyền"),
 	UNAUTHORIZED(401, 401, "Chưa xác thực"),;

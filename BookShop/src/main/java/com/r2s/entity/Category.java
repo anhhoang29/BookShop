@@ -16,14 +16,17 @@ public class Category implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
-	private Integer category_id;
+	private Integer categoryId;
 	
 	@Column(name = "category_name")
-	private String category_name;
+	private String categoryName;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(name="Book_Category",
-			joinColumns = @JoinColumn(name="category_id"),
-			inverseJoinColumns = @JoinColumn(name="book_id"))
+			joinColumns = @JoinColumn(name="categoryId"),
+			inverseJoinColumns = @JoinColumn(name="bookId"))
 	private List<Book> books;
+
+	
+	
 }
