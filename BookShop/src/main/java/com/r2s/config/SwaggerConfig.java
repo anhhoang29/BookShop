@@ -1,4 +1,4 @@
-package com.r2s.BookShop.Config;
+package com.r2s.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.context.annotation.Bean;

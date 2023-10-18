@@ -2,21 +2,18 @@ package com.r2s.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Data
+@Setter
+@Getter
 @Table(name = "author")
 public class Author implements Serializable {
 	
@@ -30,6 +27,8 @@ public class Author implements Serializable {
 	
 	@Column(name = "biography")
 	private String biography;
-	
+
+	@OneToMany(mappedBy="author", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private List<Book> books;
 }
 

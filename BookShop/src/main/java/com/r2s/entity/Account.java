@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 
 import com.r2s.entity.User;
@@ -24,6 +26,8 @@ import lombok.Data;
 
 @Entity
 @Data
+@Setter
+@Getter
 @Table(name = "account")
 public class Account implements Serializable {
 	
@@ -43,16 +47,19 @@ public class Account implements Serializable {
 	
 	@Column(name = "createdDate")
 	private Date createdDate;
+
+	@Column(name ="user_id")
+	private Integer userId;
+
+	@Column(name = "role_id")
+	private Integer roleId;
 	
-	@JoinColumn(name = "user_id", referencedColumnName= "user_id")
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	@OneToOne
 	private User user;
-	
-	@ManyToMany
-	@JoinTable(name = "account_role", joinColumns = {
-			@JoinColumn(name = "account_id", referencedColumnName = "accountId") }, 
-			inverseJoinColumns = {
-					@JoinColumn(name = "role_id", referencedColumnName = "roleId") })
+
+	@OneToMany
+	@JoinColumn(name = "role_id", referencedColumnName = "role_id")
 	private Set<Role> roles;
-	
+
 }

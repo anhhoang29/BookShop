@@ -1,4 +1,4 @@
-package com.r2s.BookShop;
+package com.r2s;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

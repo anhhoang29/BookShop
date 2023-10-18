@@ -28,4 +28,11 @@ public class ResponseModel {
 		this(ErrorCodeEnum.OK);
 		this.data = data;
 	}
+
+    public ResponseModel(ErrorCodeEnum errorCode, Object o) {
+		this.status = HttpStatus.valueOf(errorCode.getStatus());
+		this.code = errorCode.getCode();
+		this.message = errorCode.getMessage();
+		this.data = o;
+    }
 }

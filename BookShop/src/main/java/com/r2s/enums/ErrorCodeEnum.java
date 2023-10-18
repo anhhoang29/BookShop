@@ -7,14 +7,16 @@ import java.util.Map;
 
 public enum ErrorCodeEnum {
 	OK(200, 200, "OK"),
+
+
 	NO_CONTENT(204, 20401, "Not have data"),
 	BAD_REQUEST(400, 40000, "Bad request"),
 	INVALID_USER(400, 40001, "User not exist"),
 	INVALID_CREATE_USER(400, 40002, "Create user not success"),
 	INVALID_UPDATE_USER(400, 40003, "Update user not success"),
-	INVALID_ACCOUNT_LIST(400, 40004, "Account empty"),
-	INVALID_ACCOUNT(400, 40004, "Invalid account"),
-    INTERNAL_SERVER_ERROR(500, 50000, "Internal Server Error");
+	INTERNAL_SERVER_ERROR(500, 50000, "Internal Server Error"),
+	FORBIDDEN(403, 403, "Không có quyền"),
+	UNAUTHORIZED(401, 401, "Chưa xác thực"),;
 
 	private static Map<Integer, ErrorCodeEnum> map = new HashMap<>();
 
@@ -52,5 +54,9 @@ public enum ErrorCodeEnum {
 
 	public String getMessage() {
 		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 }

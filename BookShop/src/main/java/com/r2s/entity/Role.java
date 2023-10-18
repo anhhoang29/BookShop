@@ -27,5 +27,9 @@ public class Role implements Serializable {
 	
 	@Column(name = "role_name")
 	private String roleName;
-	
+
+	@JoinColumn(name = "role_id", referencedColumnName = "account_id")
+	@OneToMany
+	private Set<Account> accounts;
+
 }
