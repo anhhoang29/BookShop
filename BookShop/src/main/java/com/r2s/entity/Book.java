@@ -2,17 +2,19 @@ package com.r2s.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.r2s.entity.Author;
+import com.r2s.dto.AuthorOutDto;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "book")
 public class Book implements Serializable {
 

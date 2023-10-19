@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ActionResult {
+
 	private ErrorCodeEnum errorCodeEnum = ErrorCodeEnum.OK;
 	private Object data;
 //	private String message;
@@ -25,4 +26,5 @@ public class ActionResult {
 	public void setMessage(String message) {
 		this.errorCodeEnum.setMessage(message);
 	}
+
 }

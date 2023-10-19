@@ -12,11 +12,11 @@ import com.r2s.entity.Author;
 import jakarta.transaction.Transactional;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
-	@Query("SELECT a FROM Author a WHERE a.id = :authorId")
-	Author getAuthorById(@Param("AuthorId") Integer authorId);
+	@Query("SELECT a FROM Author a WHERE a.authorId = :authorId")
+	Author getAuthorById(@Param("authorId") Integer authorId);
 	
 	@Modifying
 	@Transactional
-	@Query("delete from Author a where a.id in(:authorId)")
+	@Query("delete from Author a where a.authorId in(:authorId)")
 	void deleteByIdIn(List<Integer> authorId);
 }

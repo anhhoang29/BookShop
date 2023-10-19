@@ -2,6 +2,8 @@ package com.r2s.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,9 @@ import com.r2s.model.ResponseModel;
 import com.r2s.service.CategoryService;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
+@Tag(name = "category")
 public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
@@ -36,10 +40,22 @@ public class CategoryController {
 		} catch (Exception e) {
 			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
 		}
-		return responseBuild.build(result); 
+		return responseBuild.build(result);
+	}
+
+
+	@GetMapping("/category")
+	public ResponseModel getAllCategory() {
+		ActionResult result = null;
+		try {
+			result = categoryService.getCategories();
+		} catch (Exception e) {
+			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
+		}
+		return responseBuild.build(result);
 	}
 	
-	@PostMapping("/")
+	@PostMapping("/category")
 	public ResponseModel insertAccount(@RequestBody Category category) {
 		ActionResult result = null;
 		try {
@@ -47,10 +63,10 @@ public class CategoryController {
 		} catch (Exception e) {
 			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
 		}
-		return responseBuild.build(result); 
+		return responseBuild.build(result);
 	}
 	
-	@GetMapping("/{categoryId}")
+	@GetMapping("/category/{categoryId}")
 	public ResponseModel getAccountById(@PathVariable Integer categoryId) {
 		ActionResult result = null;
 		try {
@@ -61,28 +77,28 @@ public class CategoryController {
 		return responseBuild.build(result); 
 	}
 	
-	@DeleteMapping("/{categoryId}")
-	public ResponseModel deleteAccount(@PathVariable Integer categoryId) {
-		ActionResult result = null;
-		try {
-			result = categoryService.deleteCategory(categoryId);
-		} catch (Exception e) {
-			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
-		}
-		return responseBuild.build(result); 
-	}
-	
-	@DeleteMapping("/")
-	public ResponseModel deleteAllCategoryById(@RequestParam List<Integer> categoryId) {
-		ActionResult result = null;
-		try {
-			result = categoryService.deleteAllBYIds(categoryId);
-		} catch (Exception e) {
-			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
-		}
-		return responseBuild.build(result); 
-	}
-	
+//	@DeleteMapping("/{categoryId}")
+//	public ResponseModel deleteAccount(@PathVariable Integer categoryId) {
+//		ActionResult result = null;
+//		try {
+//			result = categoryService.deleteCategory(categoryId);
+//		} catch (Exception e) {
+//			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
+//		}
+//		return responseBuild.build(result);
+//	}
+
+//	@DeleteMapping("/")
+//	public ResponseModel deleteAllCategoryById(@RequestParam List<Integer> categoryId) {
+//		ActionResult result = null;
+//		try {
+//			result = categoryService.deleteAllBYIds(categoryId);
+//		} catch (Exception e) {
+//			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
+//		}
+//		return responseBuild.build(result);
+//	}
+
 	@PutMapping("/{categoryId}")
 	public ResponseModel updateAccount(@PathVariable Integer categoryId, @RequestBody Category category) {
 		ActionResult result = null;

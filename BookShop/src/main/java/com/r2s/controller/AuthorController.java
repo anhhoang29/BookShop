@@ -2,6 +2,8 @@ package com.r2s.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,9 @@ import com.r2s.model.ResponseModel;
 import com.r2s.service.AuthorService;
 
 @RestController
-@RequestMapping("/author")
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
+@Tag(name = "author")
 public class AuthorController {
 	@Autowired
 	private AuthorService authorService;
@@ -30,7 +34,7 @@ public class AuthorController {
 	@Autowired
 	private ResponseBuild responseBuild;
 	
-	@GetMapping("/")
+	@GetMapping("/author")
 	public ResponseModel getAllAuthor() {
 		ActionResult result = null;
 		try {
@@ -38,7 +42,7 @@ public class AuthorController {
 		} catch (Exception e) {
 			result.setErrorCodeEnum(ErrorCodeEnum.INTERNAL_SERVER_ERROR);
 		}
-		return responseBuild.build(result); 
+		return responseBuild.build(result);
 	}
 	
 	@GetMapping("/{authorId}")
@@ -52,7 +56,7 @@ public class AuthorController {
 		return responseBuild.build(result); 
 	}
 	
-	@PostMapping("/")
+	@PostMapping("/author")
 	public ResponseModel createAuthor(@RequestBody Author authors) {
 		ActionResult result = null;
 		try {
@@ -63,7 +67,7 @@ public class AuthorController {
 		return responseBuild.build(result); 
 	}
 	
-	@DeleteMapping("/{authorId}")
+	@DeleteMapping("/author/{authorId}")
 	public ResponseModel deleteAuthor(@PathVariable Integer authorId) {
 		ActionResult result = null;
 		try {
@@ -73,7 +77,7 @@ public class AuthorController {
 		}
 		return responseBuild.build(result); 
 	}
-	@DeleteMapping("/")
+	@DeleteMapping("/author")
 	public ResponseModel deleteAllAuthorId(@RequestParam List<Integer> authorId) {
 		ActionResult result = null;
 		try {
@@ -83,7 +87,7 @@ public class AuthorController {
 		}
 		return responseBuild.build(result); 
 	}
-	@PutMapping("/{authorId}")
+	@PutMapping("/author/{authorId}")
 	public ResponseModel updateAuthor(@PathVariable Integer authorId, @RequestBody Author updateAuthor) {
 		ActionResult result = null;
 		try {

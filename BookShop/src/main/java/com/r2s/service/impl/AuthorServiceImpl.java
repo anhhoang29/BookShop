@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 
@@ -16,10 +14,9 @@ import com.r2s.dto.AuthorOutDto;
 import com.r2s.model.AuthorModel;
 import com.r2s.repository.AuthorRepository;
 import com.r2s.service.AuthorService;
-import jakarta.transaction.Transactional;
 
 @Service
-public class AuthorServiecImpl implements AuthorService {
+public class AuthorServiceImpl implements AuthorService {
 	@Autowired
 	private AuthorRepository authorRepository;
 

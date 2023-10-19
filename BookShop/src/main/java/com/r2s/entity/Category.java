@@ -5,11 +5,16 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "category")
 public class Category implements Serializable {
 	
@@ -21,12 +26,12 @@ public class Category implements Serializable {
 	@Column(name = "category_name")
 	private String categoryName;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinTable(name="Book_Category",
-			joinColumns = @JoinColumn(name="categoryId"),
-			inverseJoinColumns = @JoinColumn(name="bookId"))
-	private List<Book> books;
+	@ManyToMany(fetch = FetchType.LAZY, cascade =
+			{CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinTable(name="book_category",
+			joinColumns = @JoinColumn(name="book_id"),
+			inverseJoinColumns = @JoinColumn(name="category_id"))
+	@JsonIgnore
+	private List<Category> categories;
 
-	
-	
 }

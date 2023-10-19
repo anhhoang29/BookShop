@@ -72,25 +72,25 @@ public class CategoryServiceImpl implements CategoryService {
 		return result;
 	}
 
-	@Override
-	public ActionResult deleteCategory(Integer id) {
-		ActionResult result = new ActionResult();
-		Category category = categoryRepository.getCategoryById(id);
-		if (category == null) {
-			result.setErrorCodeEnum(ErrorCodeEnum.INVALID_USER);
-			return result;
-		} else {
-			if (category.getBooks().isEmpty()) {
-				categoryRepository.delete(category);
-				result.setData(new String("Delete success!"));
-			}else {
-				result.setErrorCodeEnum(ErrorCodeEnum.INVALID_DELETE);
-				return result;
-			}
-			
-		}
-		return result;
-	}
+//	@Override
+//	public ActionResult deleteCategory(Integer id) {
+//		ActionResult result = new ActionResult();
+//		Category category = categoryRepository.getCategoryById(id);
+//		if (category == null) {
+//			result.setErrorCodeEnum(ErrorCodeEnum.INVALID_USER);
+//			return result;
+//		} else {
+//			if (category.getBooks().isEmpty()) {
+//				categoryRepository.delete(category);
+//				result.setData(new String("Delete success!"));
+//			}else {
+//				result.setErrorCodeEnum(ErrorCodeEnum.INVALID_DELETE);
+//				return result;
+//			}
+//
+//		}
+//		return result;
+//	}
 
 	@Override
 	public ActionResult updatetCategory(Integer id, Category newCategory) {
@@ -116,18 +116,5 @@ public class CategoryServiceImpl implements CategoryService {
 		return result;
 	}
 
-	@Override
-	public ActionResult deleteAllBYIds(List<Integer> categoryId) {
-		ActionResult result = new ActionResult();
-		try {
-			categoryRepository.deleteByIdIn(categoryId);
-			result.setData(new String("Delete success!"));
-		} catch (Exception e) {
-			result.setErrorCodeEnum(ErrorCodeEnum.INVALID_DELETE);
-			return result;
-		}
-		
-		return result;
-	}
 
 }

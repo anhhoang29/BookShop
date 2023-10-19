@@ -9,7 +9,8 @@ public interface CategoryService {
 	ActionResult getCategories();
 	ActionResult createCategory(Category category);
 	ActionResult getCategoryById(Integer categoryId);
-	ActionResult deleteCategory(Integer categoryId);
+//	ActionResult deleteCategory(Integer categoryId);
 	ActionResult updatetCategory(Integer categoryId, Category newCategory);
-	ActionResult deleteAllBYIds(List<Integer> categoryId);
+	//ActionResult deleteAllBYIds(List<Integer> categoryId);
+
 }

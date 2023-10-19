@@ -27,22 +27,22 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
-	private Integer order_id;
+	private Integer orderId;
 	
 	@Column(name = "order_date")
-	private Timestamp order_date;
+	private Timestamp orderDate;
 	
 	@Column(name = "total_amount")
-	private BigDecimal total_amount;
+	private BigDecimal totalAmount;
 	
 	@Column(name = "delivery_address")
-	private String delivery_address;
+	private String deliveryAddress;
 	
 	@Column(name = "payment_method")
-	private String payment_method;
+	private String paymentMethod;
 	
 	@ManyToOne
-	@JoinColumn(name = "account_id", referencedColumnName= "accountId")
+	@JoinColumn(name = "account_id", referencedColumnName= "account_id")
 	private Account account;
 	
 }
