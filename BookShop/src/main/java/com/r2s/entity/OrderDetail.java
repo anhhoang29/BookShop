@@ -27,19 +27,19 @@ public class OrderDetail implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_detail_id")
-	private Integer order_detail_id;
+	private Integer order_detailId;
 	
 	@Column(name = "quantity_order")
-	private Integer quantity_order;
+	private Integer quantityOrder;
 	
 	@Column(name = "unit_price")
-	private BigDecimal unit_price;
+	private BigDecimal unitPrice;
 	
 	@ManyToOne
-	@JoinColumn(name = "order_id", referencedColumnName= "orderId")
+	@JoinColumn(name = "oder_id", referencedColumnName= "order_id")
 	private Order order;
 	
 	@ManyToOne
-	@JoinColumn(name = "book_id", referencedColumnName= "bookId")
+	@JoinColumn(name = "book_id", referencedColumnName= "book_id")
 	private Book book;
 }

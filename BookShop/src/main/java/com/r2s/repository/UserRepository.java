@@ -9,4 +9,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("FROM User where account.userName =:username ")
     User findByUsername(@Param("username") String username);
+
+    @Query("FROM User where account.accountId =:id ")
+    User findById(@Param("id") Long id);
+
+    @Query("FROM User where account.accountId =:id ")
+    User deleteById(@Param("id") Long id);
+
 }

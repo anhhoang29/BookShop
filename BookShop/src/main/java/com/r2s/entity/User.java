@@ -44,8 +44,9 @@ public class User implements Serializable {
 	
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	@OneToOne(mappedBy = "user")
 	private Account account;
+
 
 }

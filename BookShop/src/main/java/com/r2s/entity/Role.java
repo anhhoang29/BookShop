@@ -14,9 +14,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Data
+@Setter
+@Getter
 @Table(name = "role")
 public class Role implements Serializable {
 	
@@ -28,8 +32,7 @@ public class Role implements Serializable {
 	@Column(name = "role_name")
 	private String roleName;
 
-	@JoinColumn(name = "role_id", referencedColumnName = "account_id")
-	@OneToMany
-	private Set<Account> accounts;
+//	@OneToMany(mappedBy = "role")
+//	private Set<Account> account;
 
 }

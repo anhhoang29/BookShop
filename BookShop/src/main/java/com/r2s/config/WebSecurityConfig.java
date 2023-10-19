@@ -46,6 +46,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorization ->
                         authorization.requestMatchers("/home").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/api/v1/swagger-ui/**").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
