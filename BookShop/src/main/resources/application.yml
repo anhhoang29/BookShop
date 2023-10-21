@@ -1,3 +1,4 @@
+
 #server:
 #  port: 8080
 #  servlet:
@@ -21,3 +22,28 @@
 #  security:
 #    permit-all:
 #      ant-pattern: /v3/api-docs/**, /swagger-ui/**, /oauth2/**, /healthcheck/status
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project_book
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+app:
+  jwt:
+    secret-key: ${SECRET_KEY}
+  security:
+    permit-all:
+      ant-pattern: /v3/api-docs/**, /swagger-ui/**, /oauth2/**, /healthcheck/status
+
