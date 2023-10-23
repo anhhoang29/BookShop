@@ -20,12 +20,14 @@ public class BookModel {
     private String description;
     private String authorName;
     private List<String> categoryName;
+    private Integer quantityBook;
 
     public static BookModel transform(Book entity) {
         return BookModel.builder()
                 .bookId(entity.getBookId())
                 .bookName(entity.getTitle())
                 .description(entity.getDescription())
+                .quantityBook(entity.getQuantityBook())
                 .authorName(entity.getAuthor().getAuthorName())
                 .categoryName(entity.getCategories().stream().map(Category::getCategoryName).toList())
                 .build();

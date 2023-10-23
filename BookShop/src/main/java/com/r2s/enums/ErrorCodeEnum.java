@@ -8,8 +8,10 @@ import java.util.Map;
 public enum ErrorCodeEnum {
 	OK(200, 200, "OK"),
 
-
+	
 	NO_CONTENT(204, 20401, "Not have data"),
+	NO_ENOUGH_BOOk(204, 20402, "Not enough book"),
+	CANCELED_ODER(204, 20403, "Cannot order"),
 	BAD_REQUEST(400, 40000, "Bad request"),
 	INVALID_USER(400, 40001, "User not exist"),
 	INVALID_CREATE_USER(400, 40002, "Create user not success"),

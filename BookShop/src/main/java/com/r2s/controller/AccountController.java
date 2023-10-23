@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Tag(name = "account")
 
-@RequestMapping("api/v1/accounts")
+//@RequestMapping("api/v1/accounts")
 
 public class AccountController {
 

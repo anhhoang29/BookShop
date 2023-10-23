@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 @Tag(name = "user")
 
@@ -32,7 +32,7 @@ public class UserController {
 
     @GetMapping("/users")
 
-    @GetMapping("/")
+//    @GetMapping("/")
 
     public ResponseModel getAllUsers() {
         ActionResult result = userService.getAll();
@@ -42,7 +42,7 @@ public class UserController {
 
     @GetMapping("/users/{id}")
 
-    @GetMapping("/{id}")
+//    @GetMapping("/{id}")
 
     public ResponseModel getUserById(@PathVariable Long id) {
         ActionResult result = userService.getById(id);
@@ -52,7 +52,7 @@ public class UserController {
 
     @PostMapping("/users")
 
-    @PostMapping("/")
+ //   @PostMapping("/")
 
     public ResponseModel createUser(@RequestBody UserDto userDto) {
         ActionResult result = userService.createUser(userDto);
@@ -62,7 +62,7 @@ public class UserController {
 
     @PutMapping("/users/{id}")
 
-    @PutMapping("/{id}")
+//    @PutMapping("/{id}")
 
     public ResponseModel updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
         ActionResult result = userService.updateUser(id, userDto);
@@ -72,7 +72,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
 
-    @DeleteMapping("/{id}")
+//    @DeleteMapping("/{id}")
 
     public ResponseModel deleteUser(@PathVariable Long id) {
         ActionResult result = userService.deleteUser(id);

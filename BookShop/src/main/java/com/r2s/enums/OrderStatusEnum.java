@@ -1,0 +1,18 @@
+package com.r2s.enums;
+
+public enum OrderStatusEnum {
+	PENDING("Pending"),
+	COMPLETE("Complete"),
+	CANCEL("Cancel");
+	
+	private String status;
+
+	private OrderStatusEnum(String status) {
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+}

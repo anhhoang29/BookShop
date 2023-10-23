@@ -37,6 +37,9 @@ public class Book implements Serializable {
 
     @Column(name = "description")
     private String description;
+    
+    @Column(name = "quantity_book")
+    private Integer quantityBook;
 
     //	@ManyToOne
 //	@JoinColumn(name = "author_id", referencedColumnName= "authorId")

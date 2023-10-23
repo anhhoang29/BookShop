@@ -14,7 +14,9 @@ public class BookDto {
     String categoryName;
     String Language;
     BigDecimal price;
+    Integer quantityBook;
 
     private List<AuthorDto> authors;
     private List<CategoryDto> categories;
 }
+

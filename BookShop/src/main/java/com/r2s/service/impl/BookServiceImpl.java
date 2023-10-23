@@ -65,7 +65,7 @@ public class BookServiceImpl implements BookService {
             book1.setAuthor((Author) authors);
             book1.setCategories(categories);
             book1.setDescription(book.getDescription());
-
+            book1.setQuantityBook(book.getQuantityBook());
             bookRepository.save(book1);
 
             actionResult.setSuccess(true);
@@ -110,6 +110,7 @@ public class BookServiceImpl implements BookService {
                 book1.setCategories(categories);
 
                 book1.setDescription(book.getDescription());
+                book1.setQuantityBook(book.getQuantityBook());
 
                 bookRepository.save(book1);
                 actionResult.setData(BookModel.transform(book1));
